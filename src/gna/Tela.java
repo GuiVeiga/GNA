@@ -6,6 +6,12 @@
 package gna;
 
 import gna.Distribuicoes;
+import javafx.stage.FileChooser;
+import javax.swing.JFileChooser;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintStream;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -343,9 +349,20 @@ public class Tela extends javax.swing.JFrame {
 
         uniformeTextArea.setText(null);
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             double uniforme = Distribuicoes.uniforme(a, b);
             uniformeTextArea.append(Double.toString(uniforme) + "\n");
+        }
+        
+        JFileChooser fileChooser = new JFileChooser();
+        try {
+            if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION){
+                File file = fileChooser.getSelectedFile();
+                PrintStream output = new PrintStream(file);
+                output.print(uniformeTextArea.getText());
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
         }
     }//GEN-LAST:event_uniformeBotaoActionPerformed
 
@@ -357,9 +374,20 @@ public class Tela extends javax.swing.JFrame {
 
         triangularTextArea.setText(null);
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             double triangular = Distribuicoes.triangular(min, max, moda);
             triangularTextArea.append(Double.toString(triangular) + "\n");
+        }
+        
+        JFileChooser fileChooser = new JFileChooser();
+        try {
+            if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION){
+                File file = fileChooser.getSelectedFile();
+                PrintStream output = new PrintStream(file);
+                output.print(triangularTextArea.getText());
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
         }
     }//GEN-LAST:event_triangularBotaoActionPerformed
 
@@ -369,9 +397,20 @@ public class Tela extends javax.swing.JFrame {
 
         exponencialTextArea.setText(null);
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             double exponencial = Distribuicoes.exponencial(media);
             exponencialTextArea.append(Double.toString(exponencial) + "\n");
+        }
+        
+        JFileChooser fileChooser = new JFileChooser();
+        try {
+            if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION){
+                File file = fileChooser.getSelectedFile();
+                PrintStream output = new PrintStream(file);
+                output.print(exponencialTextArea.getText());
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
         }
     }//GEN-LAST:event_exponencialBotaoActionPerformed
 
@@ -386,9 +425,20 @@ public class Tela extends javax.swing.JFrame {
 
         normalTextArea.setText(null);
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             double normal = Distribuicoes.normal(media, variancia);
             normalTextArea.append(Double.toString(normal) + "\n");
+        }
+        
+        JFileChooser fileChooser = new JFileChooser();
+        try {
+            if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION){
+                File file = fileChooser.getSelectedFile();
+                PrintStream output = new PrintStream(file);
+                output.print(normalTextArea.getText());
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
         }
     }//GEN-LAST:event_normalBotaoActionPerformed
 
